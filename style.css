@@ -1,0 +1,20 @@
+* {
+    background-color: gray;
+}
+
+#grid-container {
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(16, 1fr);
+    width: 500px;
+    height: 500px; 
+    border: solid 1px blue;
+    background-color: white;
+}
+
+
+.grid-item {
+    background-color: blue;
+    border: solid black;
+}
+
