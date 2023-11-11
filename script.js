@@ -30,9 +30,16 @@ function fillGrid(size) {
   
 }
 
-fillGrid(2)
+function changeSize() {
+  let setSize = document.getElementsByClassName("set-size")[0].value;
 
+  return fillGrid(setSize)
 
+};
+
+document.addEventListener('DOMContentLoaded', function () {
+  changeSize();
+});
 
 //Footer
 const dataAtual = new Date();
