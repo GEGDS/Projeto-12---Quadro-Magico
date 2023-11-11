@@ -1,12 +1,37 @@
-const gridContainer = document.getElementById("grid-container");
 
-for (let i = 0; i < 16; i++) {
-  for (let j = 0; j < 16; j++) {
-    const cell = document.createElement("div"); 
-    cell.className = "grid-item"; // Adicione uma classe para estilização
-    gridContainer.appendChild(cell); // Adicione a célula ao grid container
+
+
+//main
+function fillGrid(size) {
+  const gridContainer = document.getElementById("grid-container");
+  //obtém o tamanho do container
+  const containerSize = gridContainer.clientWidth; 
+  //calcula o tamanho das celulas
+  const cellSize = containerSize/size;
+
+
+  gridContainer.style.gridTemplateColumns = `repeat(${size}, ${cellSize}px)`;
+  gridContainer.style.gridTemplateRows = `repeat(${size}, ${cellSize}px)`;
+
+  //Limpar 
+  gridContainer.innerHTML = '';
+
+  for (let i=0; i < size * size; i++) {
+    const gridItem = document.createElement('div');
+    gridItem.className = 'grid-item';
+
+    //Define altura e largura absoluta de cada célula
+    gridItem.style.height = `${cellSize}px`;
+    gridItem.style.width = `${cellSize}px`;
+  
+
+    gridContainer.appendChild(gridItem);
   }
+  
 }
+
+fillGrid(2)
+
 
 
 //Footer
