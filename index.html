@@ -9,11 +9,11 @@
 </head>
 <body>
     <header>
-        <h1 id="title">Quadro Mágico</h1>
+        <h1>Quadro Mágico</h1>
     </header>
 
     <main>
-        <div class="buttons">
+        <div class="btn-top">
             <label for="select">Set Size: </label>
             <select name="select" class="set-size" onchange="changeSize()" required>
                 <option value="2">2</option>
@@ -33,11 +33,21 @@
                 <option value="90">90</option>
                 <option value="100">100</option>
               </select>
+
+              <label for="changeColor"> Change Color: </label>
+              <input type="color" name="changeColor" class="change-color" onchange="changeColor()">
+
         </div>
 
         <div id="grid-container">
             
         </div>
+
+        <div btn-bottom>
+            <label for="clearGrid"></label>
+            <button name="clearGrid" class="clear-grid" onclick="clearGrid()">Clear</button>
+        </div>
+
     </main>
 
     <footer>

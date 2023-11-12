@@ -24,8 +24,9 @@ function fillGrid(size) {
     gridItem.style.height = `${cellSize}px`;
     gridItem.style.width = `${cellSize}px`;
   
-
     gridContainer.appendChild(gridItem);
+
+
   }
   
 }
@@ -36,6 +37,27 @@ function changeSize() {
   return fillGrid(setSize)
 
 };
+
+function changeColor() {
+  let color = document.querySelector(".change-color").value;
+
+  const gridItems = document.querySelectorAll('.grid-item');
+
+  gridItems.forEach(function(gridItem) {
+      gridItem.addEventListener('mouseover', function () {
+          gridItem.style.backgroundColor = color;
+      });
+  });
+}
+
+function clearGrid() {
+  const gridItems = document.querySelectorAll('.grid-item');
+
+  gridItems.forEach(function(gridItem) {
+      gridItem.style.backgroundColor = '';
+  });
+}
+
 
 document.addEventListener('DOMContentLoaded', function () {
   changeSize();
