@@ -1,7 +1,6 @@
-
-
-
 //main
+let activeColor = true;
+
 function fillGrid(size) {
   const gridContainer = document.getElementById("grid-container");
   //obtém o tamanho do container
@@ -9,12 +8,18 @@ function fillGrid(size) {
   //calcula o tamanho das celulas
   const cellSize = containerSize/size;
 
-
   gridContainer.style.gridTemplateColumns = `repeat(${size}, ${cellSize}px)`;
   gridContainer.style.gridTemplateRows = `repeat(${size}, ${cellSize}px)`;
 
   //Limpar 
   gridContainer.innerHTML = '';
+
+  function handleMouseOver(gridItem) {
+    if(activeColor) {
+      let color = document.querySelector(".change-color").value;
+      gridItem.style.backgroundColor = color;
+    } 
+  }
 
   for (let i=0; i < size * size; i++) {
     const gridItem = document.createElement('div');
@@ -23,32 +28,23 @@ function fillGrid(size) {
     //Define altura e largura absoluta de cada célula
     gridItem.style.height = `${cellSize}px`;
     gridItem.style.width = `${cellSize}px`;
-  
+
+    gridItem.addEventListener('mouseover', function() {
+      handleMouseOver(gridItem)
+    });
     gridContainer.appendChild(gridItem);
-
-
   }
-  
 }
+
 
 function changeSize() {
   let setSize = document.getElementsByClassName("set-size")[0].value;
-
   return fillGrid(setSize)
-
 };
 
-function changeColor() {
-  let color = document.querySelector(".change-color").value;
-
-  const gridItems = document.querySelectorAll('.grid-item');
-
-  gridItems.forEach(function(gridItem) {
-      gridItem.addEventListener('mouseover', function () {
-          gridItem.style.backgroundColor = color;
-      });
-  });
-}
+function clickColor() {
+  activeColor = !activeColor;
+};
 
 function clearGrid() {
   const gridItems = document.querySelectorAll('.grid-item');
@@ -59,9 +55,15 @@ function clearGrid() {
 }
 
 
+
 document.addEventListener('DOMContentLoaded', function () {
   changeSize();
+
+  const gridContainer = document.getElementById("grid-container");
+
+  gridContainer.addEventListener('click', clickColor)
 });
+
 
 //Footer
 const dataAtual = new Date();
