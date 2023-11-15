@@ -1,39 +1,113 @@
+:root {
+    --var-color1: #040DBF;
+    --var-color2: #1154D9;
+    --var-color3: #F2CB05;
+    --var-color4: #F2B90C;
+    --var-color5: #D9910D;
+}
+
+@font-face {
+    font-family: PixelifySans-bold;
+    src: url(Fonts/PixelifySans-Bold.ttf);
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: PixelifySans-Regular;
+    src: url(Fonts/PixelifySans-Regular.ttf);
+    font-weight: 800;
+    font-style: normal;
+}
+
 * {
-    background-color: whitesmoke;
+    background-color: var(--var-color3);
+    margin: 0;
+    padding: 0;
 }
 
 header {
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 10vh;
+    background-color: var(--var-color2);
+}
+
+header > h1 {
+    font-family: 'PixelifySans-Bold', sans-serif;
+    font-size: 3em;
+    background-color: var(--var-color2);
+    color: var(--var-color4);
 }
 
 main {
-    height: 100vh;
-    width: 100vw;
+    height: 85vh;
     display: flex;
+    padding: 5px;
     flex-direction: column;
     align-items: center;
 }
 
+.mode {
+    font-weight: bold;
+    padding: 3px;
+    color: var(--var-color1);
+}
+ 
+.btn-top {
+    font-weight: bold;
+    padding: 5px;
+    color: var(--var-color1);
+}
 
 #grid-container {
     display: grid;
     width: 400px;
     height: 400px;
-    border: 5px solid darkblue;
+    border: 5px solid var(--var-color1);
+
 }
 
 
 .grid-item {
-    border: 1px solid rgb(56, 124, 226);
+    border: 1px solid var(--var-color2);
+    background-color: whitesmoke;
 }
 
+.btn-bottom {
+    padding-top: 5px;
+} 
+
+.btn-bottom button {
+    height: 3em;
+    width: 6em;
+    color: white;
+    background-color: var(--var-color1);
+}
+
+.btn-bottom button:hover {
+    background-color: var(--var-color2);
+    cursor: pointer;
+}
 
 footer {
     display: flex;
+    height: 10vh;
     align-items: center;
     justify-content: center;
+    color:  var(--var-color4);
+    background-color: var(--var-color2);
+}
+
+footer span {
+    background-color: var(--var-color2);
+}
+
+footer > p {
+    font-family:  PixelifySans-Regular;
+    font-weight: bold;
+    background-color: var(--var-color2);
 }
 
 

@@ -44,6 +44,7 @@ function changeSize() {
 
 function clickColor() {
   activeColor = !activeColor;
+  
 };
 
 function clearGrid() {
@@ -54,6 +55,16 @@ function clearGrid() {
   });
 }
 
+function modeColor() {
+  let changeMode = document.getElementById('modeParagraph');
+
+  if(!activeColor) {
+    changeMode.textContent = "Mode: Not Coloring";
+  } else {
+    changeMode.textContent = "Mode: Coloring";
+  };
+}
+
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -61,7 +72,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const gridContainer = document.getElementById("grid-container");
 
-  gridContainer.addEventListener('click', clickColor)
+  gridContainer.addEventListener('click', function () {
+    clickColor();
+    modeColor();
+  });
+
+  modeColor();
 });
 
 
